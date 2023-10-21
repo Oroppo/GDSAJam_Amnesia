@@ -25,5 +25,21 @@ public class Dwayne2 : FallingItem
     {
         Destroy(gameObject);
     }
+    public override IEnumerator SinkDeBoi()
+    {
+        Sinking = true;
+        float Duration = 0;
+        while (Duration < SinkTime)
+        {
+            yield return new WaitForSeconds(SinkInterval);
+            Duration += SinkInterval;
+            coll.size = new Vector2(1.312824f, (1f - Duration / SinkTime)* 0.324f);
+            coll.offset = new Vector2(0, (1f - coll.size.y) / 2f-((1f - coll.size.y) / 2f));
+        }
+        ItemDeath();
+
+    }
+
+
 }
 

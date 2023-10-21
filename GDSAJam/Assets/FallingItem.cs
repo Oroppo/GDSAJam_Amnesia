@@ -8,13 +8,17 @@ public abstract class FallingItem : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    [HideInInspector] public BoxCollider2D coll;
+    public BoxCollider2D coll;
     public float SinkTime = 3f, SinkInterval = 0.01f;
     [HideInInspector] public bool Sinking = false;
     public virtual void OnValidate()
     {
-        coll = GetComponent<BoxCollider2D>();
-        coll.isTrigger = true;
+        if (!coll)
+        {
+            coll = GetComponent<BoxCollider2D>();
+            coll.isTrigger = true;
+        }
+       
     }
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {

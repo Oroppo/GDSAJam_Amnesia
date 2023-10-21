@@ -8,6 +8,7 @@ public class Tree : FallingItem
     public bool Falling = false;
     public float FallTime = 3f, FallInterval = 0.01f;
     public int FallDir=0;
+    public BoxCollider2D Box;
     // Start is called before the first frame update
     public override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,6 +17,7 @@ public class Tree : FallingItem
         {
             FallDir = (CanFall(Vector3.right)) ? FallDir : 1;
             FallDir = (CanFall(Vector3.left)) ? FallDir : -1;
+            Box.offset *= new Vector2(-FallDir,1);
             StartCoroutine(FallDown()); 
         }
         else Destroy(collision.gameObject);
@@ -35,6 +37,7 @@ public class Tree : FallingItem
         }
         transform.rotation = Quaternion.Euler(0, 0, FallDir*90f);
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        Destroy(Box);
         coll.isTrigger = false;
         //  ItemDeath();
     }

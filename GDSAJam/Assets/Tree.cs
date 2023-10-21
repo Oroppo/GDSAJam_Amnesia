@@ -11,11 +11,16 @@ public class Tree : FallingItem
     // Start is called before the first frame update
     public override void OnTriggerEnter2D(Collider2D collision)
     {
-        FallDir = (CanFall(Vector3.right)) ? FallDir : 1;
-        FallDir = (CanFall(Vector3.left)) ? FallDir : -1;
 
-        if (!Falling) StartCoroutine(FallDown());
+        if (!Falling)
+        {
+
+            FallDir = (CanFall(Vector3.right)) ? FallDir : 1;
+            FallDir = (CanFall(Vector3.left)) ? FallDir : -1;
+            StartCoroutine(FallDown()); 
+        }
         else Destroy(collision.gameObject);
+
         //base.OnTriggerEnter2D(collision);
     }
     public IEnumerator FallDown()

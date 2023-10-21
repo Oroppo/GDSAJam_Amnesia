@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     private TextMeshProUGUI text;
@@ -19,5 +19,8 @@ public class Timer : MonoBehaviour
         RunTime -= Time.deltaTime;
         int mins = (int)RunTime / 60;
         text.text = mins + ":" + (RunTime % 60).ToString("00.0");
+
+        if(RunTime<=0.0f)
+            SceneManager.LoadScene("WinScreen", LoadSceneMode.Single);
     }
 }

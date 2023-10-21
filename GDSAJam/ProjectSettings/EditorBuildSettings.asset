@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: be8efbf148523e4479a6f2e3dac0b228
+  - enabled: 1
+    path: Assets/Scenes/VolcanoScene.unity
+    guid: 19e9f26a12cd6aa4d9dc8fbc05a7574a
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: bafcd3f72e9f1a34794893e71c092b63
   m_configObjects: {}

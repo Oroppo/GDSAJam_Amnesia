@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6331902975566885146}
   - component: {fileID: 6331902975566885141}
   - component: {fileID: 6331902975566885140}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 264
   LRSpeed: 5
   GroundedDistance: 1.02
   CanJump: 1

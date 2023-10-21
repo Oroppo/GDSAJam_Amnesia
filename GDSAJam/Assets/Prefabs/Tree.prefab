@@ -185,7 +185,7 @@ MonoBehaviour:
   Sinking: 0
   m_whatiswall:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   Falling: 0
   FallTime: 3
   FallInterval: 0.01

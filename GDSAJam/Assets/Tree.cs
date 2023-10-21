@@ -57,6 +57,10 @@ public class Tree : FallingItem
         }
         ItemDeath();
     }
+    private void OnDestroy()
+    {
+        SpawnManager.singleton.LogExists = false;
+    }
     public override void ItemDeath()
     {
         Destroy(gameObject);

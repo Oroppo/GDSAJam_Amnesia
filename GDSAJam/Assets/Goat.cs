@@ -29,7 +29,9 @@ public class Goat : FallingItem
     }
     public void BeginJump()
     {
+        if(TargetPlatform)
         StartCoroutine(Jump(transform.position,TargetPlatform.position+Vector3.up));
+        else StartCoroutine(Jump(transform.position, transform.position + Vector3.up));
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
     private IEnumerator Jump(Vector3 P1, Vector3 P2)

@@ -8,11 +8,12 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class CharacterController : MonoBehaviour
 {
-    public LayerMask m_WhatIsGround;
+    public LayerMask m_WhatIsGround,WhatIsWall;
     private Rigidbody2D RB;
     [Range(0, 15)] public float LRSpeed = 1, GroundedDistance=5;
     [HideInInspector] public bool CanJump = true;
     [Range(0, 25)] public float JumpHeight = 15;
+    private Vector2 InputVec;
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,15 +23,17 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 vec = new Vector2(Input.GetAxis("Horizontal"),0.0f);
-        RB.velocity = new Vector2(vec.x* LRSpeed, RB.velocity.y);      
+        InputVec = new Vector2(UnityEngine.Input.GetAxis("Horizontal"),0.0f);
+       if(!IsWalled()) RB.velocity = new Vector2(InputVec.x* LRSpeed, RB.velocity.y);
+        else RB.velocity = new Vector2(0, RB.velocity.y);
     }
     private void Update()
     {
         CanJump = isGrounded(GroundedDistance);
-        if (Input.GetButtonDown("Jump"))
+        if (UnityEngine.Input.GetButtonDown("Jump"))
             Jump();
 
+        Debug.Log(IsWalled());
         transform.rotation = Quaternion.Euler(0f, 0f, 0f); 
     }
     private void Jump()
@@ -44,8 +47,17 @@ public class CharacterController : MonoBehaviour
     {
         return Physics2D.Raycast(transform.position, transform.rotation * Vector2.down, x, m_WhatIsGround);
     }
+    public bool IsWalled()
+    {
+        return Physics2D.Raycast(transform.position, transform.rotation *
+            new Vector3(InputVec.normalized.x, InputVec.normalized.y, 0f), 0.75f, WhatIsWall);
+    }
     private void OnDestroy()
     {
         Debug.Log("you suck");
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(InputVec.normalized.x, InputVec.normalized.y,0f));
     }
 }

@@ -21,6 +21,8 @@ public abstract class FallingItem : MonoBehaviour
         //do stuff once in lava
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
             BeginItemInteraction();
+        if (collision.gameObject.layer == 2)
+            BeginItemInteraction();
     }
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {

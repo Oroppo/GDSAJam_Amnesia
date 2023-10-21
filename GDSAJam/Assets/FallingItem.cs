@@ -35,8 +35,7 @@ public abstract class FallingItem : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Lava"))
             HitLava();
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
-            Debug.Log("hitPlayer");
+   
     }
     public void StunPlayer()
     {

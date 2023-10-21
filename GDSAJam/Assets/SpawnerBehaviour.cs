@@ -15,6 +15,8 @@ public class SpawnerBehaviour : MonoBehaviour
     public void BeginSpawn()
     {
 
+        Debug.Log(DetectIfOccupied());
+
         if (DetectIfOccupied())
             return;
 
@@ -34,7 +36,7 @@ public class SpawnerBehaviour : MonoBehaviour
     }
     public IEnumerator SpawnItem(float rand)
     {
-
+        Debug.Log(DetectIfOccupied());
 
         yield return new WaitForSeconds(1.0f);
 
@@ -75,6 +77,7 @@ public class SpawnerBehaviour : MonoBehaviour
     }
     private bool DetectIfOccupied()
     {
-            return Physics2D.Raycast(transform.position, transform.rotation * Vector2.down, RaycastRange);        
+      // Debug.Log(Physics2D.Raycast(transform.position, transform.rotation * Vector2.down, RaycastRange).transform.name);
+        return Physics2D.Raycast(transform.position, Vector2.down, RaycastRange);        
     }
 }

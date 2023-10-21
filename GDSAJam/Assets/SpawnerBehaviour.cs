@@ -49,12 +49,14 @@ public class SpawnerBehaviour : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
         }
 
-        
 
 
-        if (rand <= 0.2 && ChallengeLevel>2)
-            Instantiate(Spawnables[0], transform.position, Quaternion.identity* Spawnables[0].transform.localRotation);
 
+        if (rand <= 0.2 && ChallengeLevel > 2 && !SpawnManager.singleton.LogExists)
+        {
+            Instantiate(Spawnables[0], transform.position, Quaternion.identity * Spawnables[0].transform.localRotation);
+            SpawnManager.singleton.LogExists = true;
+        }
         else if (rand >= 0.2 && ChallengeLevel > 1&& rand <= 0.4)
             Instantiate(Spawnables[2], transform.position, Quaternion.identity * Spawnables[2].transform.localRotation);
 

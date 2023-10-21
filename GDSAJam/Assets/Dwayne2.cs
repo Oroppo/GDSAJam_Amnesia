@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
 public class Dwayne2 : FallingItem
 {
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +34,7 @@ public class Dwayne2 : FallingItem
             yield return new WaitForSeconds(SinkInterval);
             Duration += SinkInterval;
             coll.size = new Vector2(1.312824f, (1f - Duration / SinkTime)* 0.324f);
-            coll.offset = new Vector2(0, (1f - coll.size.y) / 2f-((1f - coll.size.y) / 2f));
+            coll.offset = new Vector2(0, (1f - coll.size.y) / 2f-((1f - coll.size.y) * (1-0.324f) / 2f));
         }
         ItemDeath();
 

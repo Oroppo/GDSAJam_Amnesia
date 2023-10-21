@@ -13,14 +13,12 @@ public class Tree : FallingItem
     public override void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (!Falling)
+        if (!Falling&& collision.gameObject.layer == LayerMask.NameToLayer("Lava"))
         {
             FallDir = (CanFall(Vector3.right)) ? FallDir : 1;
             FallDir = (CanFall(Vector3.left)) ? FallDir : -1;
             while (FallDir == 0)
-            {
-                FallDir = UnityEngine.Random.Range(-1, 1);
-            }
+              FallDir = UnityEngine.Random.Range(-1, 1);
           
             Box.offset *= new Vector2(-FallDir,1);
             StartCoroutine(FallDown()); 

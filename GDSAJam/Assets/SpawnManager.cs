@@ -34,7 +34,7 @@ public class SpawnManager : MonoBehaviour
         while 
             (rand == lastSpawner);
 
-        Spawners[rand].SpawnItem();
+        Spawners[rand].BeginSpawn();
         lastSpawner = rand;
 
         Debug.Log("Item Spawned at spawner: " + rand);

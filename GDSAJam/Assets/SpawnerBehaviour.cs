@@ -11,10 +11,19 @@ public class SpawnerBehaviour : MonoBehaviour
     public int ChallengeLevel = 0;
     public float RaycastRange;
 
-    public void SpawnItem()
+    public void BeginSpawn()
     {
+
         if (DetectIfOccupied())
             return;
+
+
+        //do ur vfx here kai
+
+        Invoke(nameof(SpawnItem), 1.0f);
+    }
+    public void SpawnItem()
+    {
 
 
         float rand = UnityEngine.Random.Range(0f, 1f);
@@ -31,7 +40,6 @@ public class SpawnerBehaviour : MonoBehaviour
         else 
             Instantiate(Spawnables[1],transform.position, Quaternion.identity * Spawnables[1].transform.localRotation);
 
-        Debug.Log(rand + " " + ChallengeLevel);
     }
 
     private void OnDrawGizmosSelected()

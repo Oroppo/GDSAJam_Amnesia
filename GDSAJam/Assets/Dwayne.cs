@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,26 +6,31 @@ using UnityEngine;
 public class Dwayne : FallingItem
 {
     public int Hitpoints =3;
-    public float InvulnerableTime =0.5f;
-    // Start is called before the first frame update
-    void Start()
+    public float InvulnerableTime = 0.5f;
+
+    [SerializeField]
+    private float shatterTime = 1.0f;
+
+    IEnumerator ShatterCoroutine()
     {
-        
+        GetComponent<SpriteRenderer>().color = Color.red;
+
+
+        for (int i =0; i<4;i++)
+        {
+            //Do shatter in 4 stages
+            
+            yield return new WaitForSeconds(shatterTime / 4);
+        }
+        base.ItemDeath();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public override void ItemDeath()
-    {
-        Destroy(gameObject);  
-    }
     public override void OnCollisionEnter2D(Collision2D collision)
     {
-        Hitpoints--;
+        if(collision.transform.tag=="Player")
+            Hitpoints--;
+
         if (Hitpoints <= 0)
-            ItemDeath();
+            StartCoroutine(ShatterCoroutine());
     }
 }

@@ -9,17 +9,12 @@ public abstract class FallingItem : MonoBehaviour
     // Start is called before the first frame update
 
     [HideInInspector] public BoxCollider2D coll;
-    public float SinkTime = 3f, SinkInterval =0.01f;
+    public float SinkTime = 3f, SinkInterval = 0.01f;
     [HideInInspector] public bool Sinking = false;
     public virtual void OnValidate()
     {
         coll = GetComponent<BoxCollider2D>();
         coll.isTrigger = true;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
@@ -52,7 +47,10 @@ public abstract class FallingItem : MonoBehaviour
         }
         ItemDeath();
     }
-    public abstract void ItemDeath();
+    public virtual void ItemDeath()
+    {
+        Destroy(gameObject);
+    }
     public virtual void HitLava()
     {
         coll.isTrigger = false;

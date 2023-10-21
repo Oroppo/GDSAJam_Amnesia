@@ -23,10 +23,10 @@ public class SpawnerBehaviour : MonoBehaviour
             Instantiate(Spawnables[0], transform.position, Quaternion.identity* Spawnables[0].transform.localRotation);
 
         else if (rand <= 0.4 && ChallengeLevel > 1)
-            Instantiate(Spawnables[2], transform.position, Quaternion.identity * Spawnables[1].transform.localRotation);
+            Instantiate(Spawnables[2], transform.position, Quaternion.identity * Spawnables[2].transform.localRotation);
 
         else 
-            Instantiate(Spawnables[1],transform.position, Quaternion.identity * Spawnables[2].transform.localRotation);
+            Instantiate(Spawnables[1],transform.position, Quaternion.identity * Spawnables[1].transform.localRotation);
 
     }
 

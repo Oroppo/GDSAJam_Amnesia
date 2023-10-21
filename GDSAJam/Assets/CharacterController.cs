@@ -44,4 +44,8 @@ public class CharacterController : MonoBehaviour
     {
         return Physics2D.Raycast(transform.position, transform.rotation * Vector2.down, x, m_WhatIsGround);
     }
+    private void OnDestroy()
+    {
+        Debug.Log("you suck");
+    }
 }

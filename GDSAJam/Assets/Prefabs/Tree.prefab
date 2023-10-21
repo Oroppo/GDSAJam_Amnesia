@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ab293ddcb40344189f52293d80f4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coll: {fileID: 262703360}
+  coll: {fileID: 8327905165453522193}
   SinkTime: 2
   SinkInterval: 0.01
   Sinking: 0
@@ -217,4 +217,4 @@ MonoBehaviour:
   FallTime: 3
   FallInterval: 0.01
   FallDir: 0
-  Box: {fileID: 0}
+  Box: {fileID: 262703360}

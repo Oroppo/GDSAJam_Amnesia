@@ -19,14 +19,17 @@ public class SpawnerBehaviour : MonoBehaviour
 
 
         //do ur vfx here kai
+        float rand = UnityEngine.Random.Range(0f, 1f);
 
-        Invoke(nameof(SpawnItem), 1.0f);
+
+
+        StartCoroutine(SpawnItem(rand));
     }
-    public void SpawnItem()
+    public IEnumerator SpawnItem(float rand)
     {
 
 
-        float rand = UnityEngine.Random.Range(0f, 1f);
+        yield return new WaitForSeconds(1.0f);
 
         if (rand <= 0.2 && ChallengeLevel>2)
             Instantiate(Spawnables[0], transform.position, Quaternion.identity* Spawnables[0].transform.localRotation);

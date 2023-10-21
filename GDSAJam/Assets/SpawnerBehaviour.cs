@@ -11,6 +11,7 @@ public class SpawnerBehaviour : MonoBehaviour
     public int ChallengeLevel = 0;
     public float RaycastRange;
 
+
     public void BeginSpawn()
     {
 
@@ -20,8 +21,14 @@ public class SpawnerBehaviour : MonoBehaviour
 
         //do ur vfx here kai
         float rand = UnityEngine.Random.Range(0f, 1f);
+        //for tree vfx
+        if (rand <= 0.2 && ChallengeLevel > 2)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
 
-
+        //for body vfx
+        transform.GetChild(1).gameObject.SetActive(true);
 
         StartCoroutine(SpawnItem(rand));
     }
@@ -30,6 +37,20 @@ public class SpawnerBehaviour : MonoBehaviour
 
 
         yield return new WaitForSeconds(1.0f);
+
+        //if a tree indicator is enabled then disable it
+        if (transform.GetChild(0).gameObject.active == true)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
+        //if a body indicator is enabled then disable it
+        if(transform.GetChild(1).gameObject.active == false)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
+
+        
+
 
         if (rand <= 0.2 && ChallengeLevel>2)
             Instantiate(Spawnables[0], transform.position, Quaternion.identity* Spawnables[0].transform.localRotation);

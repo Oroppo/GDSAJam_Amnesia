@@ -1,0 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+
+public class Dwayne2 : FallingItem
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    public override void HitLava()
+    {
+        base.HitLava();
+    }
+    public override void ItemDeath()
+    {
+        Destroy(gameObject);
+    }
+}
+

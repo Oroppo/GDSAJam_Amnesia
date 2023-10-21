@@ -47,7 +47,7 @@ MonoBehaviour:
   Spawnables:
   - {fileID: 8327905165453522194, guid: b5ef51070d157e940b842505686239e6, type: 3}
   - {fileID: 3860584707462236974, guid: 0226344ea9060824cb3a88250771412d, type: 3}
-  - {fileID: 5553545466348302882, guid: 17003742c5f78804a89bb52cd1fd2535, type: 3}
+  - {fileID: 1906823740638905211, guid: 0832ea8a487d9f7488ad9bc550348dde, type: 3}
   - {fileID: 1062540404361782230, guid: f0d6dc6a5e444dd4091baae50cf20c1c, type: 3}
   ChallengeLevel: 0
   RaycastRange: 10.25

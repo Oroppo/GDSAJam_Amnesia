@@ -46,8 +46,8 @@ public class Tree : FallingItem
         {
             yield return new WaitForSeconds(SinkInterval);
             Duration += SinkInterval;
-            coll.size = new Vector2(FallDir*(1f - Duration / SinkTime), 1);
-            coll.offset = new Vector2((1f - coll.size.x) / 2f, 0);
+            coll.size = new Vector2((1f - Duration / SinkTime), 1);
+            coll.offset = new Vector2(FallDir*(1f - coll.size.x) / 2f, 0);
         }
         ItemDeath();
     }

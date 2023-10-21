@@ -19,14 +19,14 @@ public abstract class FallingItem : MonoBehaviour
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         //do stuff once in lava
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"));
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
             BeginItemInteraction();
     }
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.layer);
         //6 is the lava layer
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Lava"));
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Lava"))
             HitLava();
     }
     public virtual void BeginItemInteraction()

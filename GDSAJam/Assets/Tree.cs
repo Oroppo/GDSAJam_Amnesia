@@ -14,7 +14,6 @@ public class Tree : FallingItem
 
         if (!Falling)
         {
-
             FallDir = (CanFall(Vector3.right)) ? FallDir : 1;
             FallDir = (CanFall(Vector3.left)) ? FallDir : -1;
             StartCoroutine(FallDown()); 
@@ -32,7 +31,7 @@ public class Tree : FallingItem
         {
             yield return new WaitForSeconds(FallInterval);
             Duration += FallInterval;
-            transform.RotateAround(transform.GetChild(0).position, Vector3.forward, FallDir*90f * (FallInterval / FallTime));
+            transform.RotateAround(transform.GetChild(0).position, Vector3.forward, FallDir * 90f * (FallInterval / FallTime));
         }
         transform.rotation = Quaternion.Euler(0, 0, FallDir*90f);
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;

@@ -1,0 +1,57 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public abstract class FallingItem : MonoBehaviour
+{
+    // Start is called before the first frame update
+
+    [HideInInspector] public BoxCollider2D coll;
+    public float SinkTime = 3f, SinkInterval =0.01f;
+    [HideInInspector] public bool Sinking = false;
+    public virtual void OnValidate()
+    {
+        coll = GetComponent<BoxCollider2D>();
+        coll.isTrigger = true;
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    public virtual void OnCollisionEnter2D(Collision2D collision)
+    {
+        //do stuff once in lava
+        BeginItemInteraction();
+    }
+    public virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.gameObject.layer);
+        //6 is the lava layer
+        if (collision.gameObject.layer == 6)
+            HitLava();
+    }
+    public virtual void BeginItemInteraction()
+    {
+        if (Sinking) return;
+        StartCoroutine(SinkDeBoi());
+    }
+    public virtual IEnumerator SinkDeBoi()
+    {
+        Sinking = true;
+        float Duration = 0;
+        while (Duration<SinkTime)
+        {          
+            yield return new WaitForSeconds(SinkInterval);
+            Duration += SinkInterval;
+            coll.size = new Vector2(1f- Duration / SinkTime,1);
+            coll.offset = new Vector2((1f - coll.size.x)/2f, 0);
+        }
+        ItemDeath();
+    }
+    public abstract void ItemDeath();
+    public virtual void HitLava()
+    {
+        coll.isTrigger = false;
+    }
+}

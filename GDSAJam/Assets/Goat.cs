@@ -38,7 +38,7 @@ public class Goat : FallingItem
     {
         if (TotalJumps <= 0)
             ItemDeath();
-        Vector3 center = transform.position + ((TargetPlatform.position - transform.position) / 2f) + Vector3.up * GoatJumpHeight;
+        Vector3 center = transform.position + ((P2 - transform.position) / 2f) + Vector3.up * GoatJumpHeight;
         float Journey = 0;
         while (Journey < GoatJumpTime)
         {
@@ -82,13 +82,12 @@ public class Goat : FallingItem
         {
             Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if (dSqrToTarget < closestDistanceSqr&&potentialTarget.transform!=CurrentPlatform)
+            if (dSqrToTarget < closestDistanceSqr&&potentialTarget.transform != CurrentPlatform)
             {
                 closestDistanceSqr = dSqrToTarget;
                 bestTarget = potentialTarget.transform;
             }
         }
-        Debug.Log(closestDistanceSqr);
         return bestTarget;
     }
     public override void ItemDeath()

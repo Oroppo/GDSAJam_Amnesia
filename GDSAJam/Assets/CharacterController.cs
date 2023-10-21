@@ -33,7 +33,6 @@ public class CharacterController : MonoBehaviour
         if (UnityEngine.Input.GetButtonDown("Jump"))
             Jump();
 
-        Debug.Log(IsWalled());
         transform.rotation = Quaternion.Euler(0f, 0f, 0f); 
     }
     private void Jump()
@@ -45,7 +44,11 @@ public class CharacterController : MonoBehaviour
 
     public bool isGrounded(float x)
     {
-        return Physics2D.Raycast(transform.position, transform.rotation * Vector2.down, x, m_WhatIsGround);
+        if (Physics2D.Raycast(transform.position + Vector3.right * GetComponent<BoxCollider2D>().size.x * transform.localScale.x / 2f, transform.rotation * Vector2.down, x, m_WhatIsGround))
+            return true;
+        else if (Physics2D.Raycast(transform.position + Vector3.left * GetComponent<BoxCollider2D>().size.x * transform.localScale.x / 2f, transform.rotation * Vector2.down, x, m_WhatIsGround))
+            return true;
+        else return false;
     }
     public bool IsWalled()
     {
@@ -58,6 +61,6 @@ public class CharacterController : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, transform.position + new Vector3(InputVec.normalized.x, InputVec.normalized.y,0f));
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.right* GetComponent<BoxCollider2D>().size.x*transform.localScale.x/2f);
     }
 }

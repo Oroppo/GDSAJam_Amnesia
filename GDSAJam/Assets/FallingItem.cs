@@ -26,10 +26,17 @@ public abstract class FallingItem : MonoBehaviour
     }
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.layer);
+       
         //6 is the lava layer
         if (collision.gameObject.layer == LayerMask.NameToLayer("Lava"))
             HitLava();
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            Debug.Log("hitPlayer");
+    }
+    public void StunPlayer()
+    {
+
     }
     public virtual void BeginItemInteraction()
     {

@@ -87,7 +87,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &6331902975566885146
@@ -157,8 +157,8 @@ MonoBehaviour:
     m_Bits: 512
   LRSpeed: 5
   GroundedDistance: 1.02
-  CanJump: 1
   JumpHeight: 12
+  CanJump: 1
 --- !u!95 &8841242485262517144
 Animator:
   serializedVersion: 4
@@ -219,3 +219,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 3
   CurrentHealth: 3
+  Invulnerable: 0

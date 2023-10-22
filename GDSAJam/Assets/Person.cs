@@ -6,23 +6,16 @@ using UnityEngine;
 
 public class Person : FallingItem
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject TargetPrefab, AngelPrefab;
     public override void HitLava()
     {
         base.HitLava();
     }
     public override void ItemDeath()
     {
+      
+        GameObject obj = Instantiate(AngelPrefab, transform.position, Quaternion.identity);
+        obj.GetComponent<Angel>().Target = Instantiate(TargetPrefab, transform.position + Vector3.up, Quaternion.identity).transform;
         Destroy(gameObject);
     }
     public override IEnumerator SinkDeBoi()

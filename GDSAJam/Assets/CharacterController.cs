@@ -29,6 +29,7 @@ public class CharacterController : MonoBehaviour
 
     [HideInInspector] 
     public bool CanJump = true;
+    public bool AirCharged = false;
     private bool _grounded;
     private bool _jumpTriggered;
     private float _lockedTill;
@@ -77,7 +78,7 @@ public class CharacterController : MonoBehaviour
     {
         CanJump = isGrounded(GroundedDistance);
         _grounded = isGrounded(GroundedDistance);
-
+        if (AirCharged == true) CanJump = true;
         if (Input.GetButtonDown("Jump"))
             Jump(1f);
 
@@ -95,6 +96,7 @@ public class CharacterController : MonoBehaviour
     private void Jump(float Modifyer)
     {
         if (!CanJump) return;
+        AirCharged = false;
         _jumpTriggered = true;
         CanJump = false;
         RB.velocity = new Vector2(RB.velocity.x, JumpHeight*Modifyer);

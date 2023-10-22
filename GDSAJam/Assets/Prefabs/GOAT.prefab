@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 2783639399834291284}
   m_Layer: 2
   m_Name: GOAT
-  m_TagString: Untagged
+  m_TagString: goat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

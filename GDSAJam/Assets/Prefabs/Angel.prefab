@@ -78,6 +78,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3159146671231942126}
   - component: {fileID: 3159146671231942127}
+  - component: {fileID: 3637616763559892983}
   m_Layer: 3
   m_Name: Angel
   m_TagString: Untagged
@@ -93,8 +94,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3159146671231942123}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.21204177, y: 0.2968585, z: 0.09916261}
+  m_LocalPosition: {x: 0.9845, y: 0.7032, z: 0}
+  m_LocalScale: {x: 1, y: 1.5, z: 0.7568884}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 557514892026292442}
@@ -141,7 +142,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 9
-  m_Sprite: {fileID: 21300000, guid: 28bb8d12e72bcbe4ca42584896e598f0, type: 3}
+  m_Sprite: {fileID: -2003062399, guid: f738805336f269748ac2176253e6b6b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -152,3 +153,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3637616763559892983
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159146671231942123}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 179740fef57ae7d4592e06eca4b11b67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

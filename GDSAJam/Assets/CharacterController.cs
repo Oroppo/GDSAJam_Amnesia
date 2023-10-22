@@ -117,7 +117,7 @@ public class CharacterController : MonoBehaviour
     {
         if (!CanJump) return;
         
-        audioData.PlayDelayed(0.3f);
+        audioData.Play();
         AirCharged = false;
         _jumpTriggered = true;
         CanJump = false;

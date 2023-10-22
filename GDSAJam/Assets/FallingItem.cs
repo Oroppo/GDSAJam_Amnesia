@@ -39,7 +39,7 @@ public abstract class FallingItem : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Lava"))
         {
             HitLava();
-            Lavaaudio.Play();
+            Lavaaudio.PlayOneShot(Lavaaudio.clip,0.5f);
         }
             
 

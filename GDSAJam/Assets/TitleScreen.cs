@@ -25,7 +25,7 @@ public class TitleScreen : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene("VolcanoScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("Cutscene", LoadSceneMode.Single);
     }
     public void LoadControls()
     {

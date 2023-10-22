@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TreePromt : MonoBehaviour
 {
-    //private void OnEnable()
-    //{
-    //    Invoke(nameof(DisableThis), 5.0f);
-    //}
-    //private void DisableThis()
-    //{
-    //    gameObject.SetActive(false);
-    //}
+    private void OnEnable()
+    {
+        Invoke(nameof(DisableThis), 3.0f);
+    }
+    private void DisableThis()
+    {
+        gameObject.SetActive(false);
+    }
 }

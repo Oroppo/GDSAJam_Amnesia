@@ -4,6 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class TitleScreen : MonoBehaviour
 {
+    public GameObject TitleScreenBackground;
+    public GameObject TitleScreenForeground;
+
+    public GameObject OptionsScreenForeground;
+    public GameObject OptionsScreenBackground; 
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +29,9 @@ public class TitleScreen : MonoBehaviour
     }
     public void LoadControls()
     {
-
+        //disable title screen elements & enable option screen elements
+        TitleScreenForeground.SetActive(false);
+        OptionsScreenForeground.SetActive(true);
     }
     public void Quit()
     {

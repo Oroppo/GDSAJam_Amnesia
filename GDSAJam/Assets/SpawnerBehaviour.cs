@@ -24,7 +24,7 @@ public class SpawnerBehaviour : MonoBehaviour
         //do ur vfx here kai
         float rand = UnityEngine.Random.Range(0f, 1f);
         //for tree vfx
-        if (rand <= 0.2 && ChallengeLevel > 2)
+        if (rand <= 0.2 && ChallengeLevel > 2 && !SpawnManager.singleton.LogExists)
         {
             transform.GetChild(0).gameObject.SetActive(true);
         }

@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 1062540404361782216}
   - component: {fileID: 1062540404361782231}
   - component: {fileID: 1062540404361782230}
+  - component: {fileID: 6143069351372459020}
   m_Layer: 2
   m_Name: GOAT
   m_TagString: Untagged
@@ -219,3 +220,24 @@ MonoBehaviour:
   GoatJumpHeight: 5
   GoatJumpTime: 1
   TotalJumps: 3
+  IHateTheGoat: {fileID: 381225419}
+--- !u!95 &6143069351372459020
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062540404361782229}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9a27a376562d1c34db4e69f6b026bcfc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

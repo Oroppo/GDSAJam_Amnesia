@@ -9,6 +9,7 @@ public class Goat : FallingItem
     public Transform TargetPlatform, CurrentPlatform;
     public float GoatJumpHeight, GoatJumpTime;
     public int TotalJumps = 3;
+    public Transform IHateTheGoat;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,7 +83,7 @@ public class Goat : FallingItem
         {
             Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if (dSqrToTarget < closestDistanceSqr&&potentialTarget.transform != CurrentPlatform)
+            if (dSqrToTarget < closestDistanceSqr&&potentialTarget.transform != CurrentPlatform && potentialTarget.transform != IHateTheGoat)
             {
                 closestDistanceSqr = dSqrToTarget;
                 bestTarget = potentialTarget.transform;

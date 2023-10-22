@@ -86,7 +86,7 @@ public class SpawnerBehaviour : MonoBehaviour
             {
                 transform.GetChild(2).gameObject.SetActive(false);
             }
-            Instantiate(Spawnables[3], transform.position, Quaternion.identity * Spawnables[1].transform.localRotation);
+            Instantiate(Spawnables[3], transform.position, Quaternion.identity * Spawnables[3].transform.localRotation);
         }
         //Bodies
         else

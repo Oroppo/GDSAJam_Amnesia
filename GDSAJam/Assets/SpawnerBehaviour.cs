@@ -74,7 +74,7 @@ public class SpawnerBehaviour : MonoBehaviour
             SpawnManager.singleton.LogExists = true;
         }
         //Rock 
-        else if (rand >= 0.1 && ChallengeLevel > 1 && rand <= 0.4)
+        else if (rand >= 0.2 && ChallengeLevel > 1 && rand <= 0.4)
             Instantiate(Spawnables[2], transform.position, Quaternion.identity * Spawnables[2].transform.localRotation);
 
         //Goat

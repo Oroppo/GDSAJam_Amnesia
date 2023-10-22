@@ -42,9 +42,9 @@ public class SpawnerBehaviour : MonoBehaviour
     {
         Debug.Log(DetectIfOccupied());
 
-        yield return new WaitForSeconds(0.5f);
+       // yield return new WaitForSeconds(0.01f);
 
-        
+        //vfx
         //if a body indicator is enabled then disable it
         if(transform.GetChild(1).gameObject.active == false)
         {
@@ -53,24 +53,27 @@ public class SpawnerBehaviour : MonoBehaviour
 
 
 
-
+        //Tree
         if (rand <= 0.2 && ChallengeLevel > 2 && !SpawnManager.singleton.LogExists)
         {
-            yield return new WaitForSeconds(4.0f);
+            //vfx
+            yield return new WaitForSeconds(3.0f);
             //if a tree indicator is enabled then disable it
             if (transform.GetChild(0).gameObject.active == true)
             {
                 transform.GetChild(0).gameObject.SetActive(false);
             }
+
             Instantiate(Spawnables[0], transform.position, Quaternion.identity * Spawnables[0].transform.localRotation);
             SpawnManager.singleton.LogExists = true;
         }
+        //Rock 
         else if (rand >= 0.2 && ChallengeLevel > 1&& rand <= 0.4)
             Instantiate(Spawnables[2], transform.position, Quaternion.identity * Spawnables[2].transform.localRotation);
-
+        //Goat
         else if (rand >= 0.6 && ChallengeLevel > 3)
             Instantiate(Spawnables[3], transform.position, Quaternion.identity * Spawnables[1].transform.localRotation);
-
+        //Bodies
         else 
             Instantiate(Spawnables[1],transform.position, Quaternion.identity * Spawnables[1].transform.localRotation);
 

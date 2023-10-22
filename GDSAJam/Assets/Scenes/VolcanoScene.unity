@@ -13256,6 +13256,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GOAT
       objectReference: {fileID: 0}
+    - target: {fileID: 1062540404361782229, guid: f0d6dc6a5e444dd4091baae50cf20c1c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0d6dc6a5e444dd4091baae50cf20c1c, type: 3}
 --- !u!1001 &1942552252

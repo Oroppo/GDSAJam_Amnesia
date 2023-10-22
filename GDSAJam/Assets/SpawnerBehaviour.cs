@@ -35,6 +35,12 @@ public class SpawnerBehaviour : MonoBehaviour
             transform.GetChild(1).gameObject.SetActive(true);
         }
         
+        //for goat VFX
+        if(rand >= 0.6 && ChallengeLevel > 3)
+        {
+            transform.GetChild(2).gameObject.SetActive(true);
+        }
+
 
         StartCoroutine(SpawnItem(rand));
     }
@@ -68,14 +74,23 @@ public class SpawnerBehaviour : MonoBehaviour
             SpawnManager.singleton.LogExists = true;
         }
         //Rock 
-        else if (rand >= 0.2 && ChallengeLevel > 1&& rand <= 0.4)
+        else if (rand >= 0.2 && ChallengeLevel > 1 && rand <= 0.4)
             Instantiate(Spawnables[2], transform.position, Quaternion.identity * Spawnables[2].transform.localRotation);
+
         //Goat
         else if (rand >= 0.6 && ChallengeLevel > 3)
+        {
+            yield return new WaitForSeconds(2.0f);
+            //vfx
+            if (transform.GetChild(2).gameObject.active == true)
+            {
+                transform.GetChild(2).gameObject.SetActive(false);
+            }
             Instantiate(Spawnables[3], transform.position, Quaternion.identity * Spawnables[1].transform.localRotation);
+        }
         //Bodies
-        else 
-            Instantiate(Spawnables[1],transform.position, Quaternion.identity * Spawnables[1].transform.localRotation);
+        else
+            Instantiate(Spawnables[1], transform.position, Quaternion.identity * Spawnables[1].transform.localRotation);
 
     }
 

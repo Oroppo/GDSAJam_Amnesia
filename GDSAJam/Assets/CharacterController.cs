@@ -13,19 +13,31 @@ public class CharacterController : MonoBehaviour
     [Range(0, 15)] public float LRSpeed = 1, GroundedDistance=5;
     [HideInInspector] public bool CanJump = true;
     [Range(0, 25)] public float JumpHeight = 15;
+
+    Animator animator;
+
+    bool isJumping, isRunning, isLanding, isIdle;
+
     private Vector2 InputVec;
     // Start is called before the first frame update
     void Awake()
     {
         RB = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
+
 
     // Update is called once per frame
     void FixedUpdate()
     {
         InputVec = new Vector2(UnityEngine.Input.GetAxis("Horizontal"),0.0f);
        if(!IsWalled()) RB.velocity = new Vector2(InputVec.x* LRSpeed, RB.velocity.y);
-        else RB.velocity = new Vector2(0, RB.velocity.y);
+           else RB.velocity = new Vector2(0, RB.velocity.y);
+
+        if (RB.velocity.x > 0f)
+            GetComponent<SpriteRenderer>().flipX=false;
+        else if (RB.velocity.x < 0f)
+            GetComponent<SpriteRenderer>().flipX = true;
     }
     private void Update()
     {
@@ -37,6 +49,12 @@ public class CharacterController : MonoBehaviour
     }
     private void Jump()
     {
+
+        isJumping = true;
+        isRunning = false;
+        isLanding = false;
+        isIdle = false;
+
         if (!CanJump) return;
         CanJump = false;
         RB.velocity = new Vector2(RB.velocity.x, JumpHeight);
@@ -45,7 +63,9 @@ public class CharacterController : MonoBehaviour
     public bool isGrounded(float x)
     {
         if (Physics2D.Raycast(transform.position + Vector3.right * GetComponent<BoxCollider2D>().size.x * transform.localScale.x / 2f, transform.rotation * Vector2.down, x, m_WhatIsGround))
+        {
             return true;
+        }
         else if (Physics2D.Raycast(transform.position + Vector3.left * GetComponent<BoxCollider2D>().size.x * transform.localScale.x / 2f, transform.rotation * Vector2.down, x, m_WhatIsGround))
             return true;
         else return false;
@@ -62,5 +82,12 @@ public class CharacterController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, transform.position + Vector3.right* GetComponent<BoxCollider2D>().size.x*transform.localScale.x/2f);
+    }
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+            if(collider.tag == "Lava")
+            {
+                
+            }
     }
 }

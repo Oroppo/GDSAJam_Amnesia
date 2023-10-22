@@ -59,7 +59,7 @@ public class Tree : FallingItem
     }
     private void OnDestroy()
     {
-        SpawnManager.singleton.LogExists = false;
+        //SpawnManager.singleton.LogExists = false;
     }
     public override void ItemDeath()
     {

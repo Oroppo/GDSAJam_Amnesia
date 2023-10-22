@@ -10,7 +10,10 @@ public class Dwayne : FallingItem
 
     [SerializeField]
     private float shatterTime = 1.0f;
-
+    private void Awake()
+    {
+        SinkInterval = 0.03f;
+    }
     IEnumerator ShatterCoroutine()
     {
         GetComponent<SpriteRenderer>().color = Color.red;

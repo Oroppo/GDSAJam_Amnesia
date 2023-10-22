@@ -6449,7 +6449,7 @@ MonoBehaviour:
   - {fileID: 822656080}
   - {fileID: 1476857091}
   - {fileID: 745504719}
-  SpawnInterval: 1.25
+  SpawnInterval: 1.1
   LogExists: 0
   spawnsUntilChallengeUp: 5
 --- !u!4 &1202297789

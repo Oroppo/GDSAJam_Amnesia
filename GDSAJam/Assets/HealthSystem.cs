@@ -6,6 +6,7 @@ public class HealthSystem : MonoBehaviour
 {
     public int MaxHealth = 3, CurrentHealth = 3;
     public bool Invulnerable = false;
+    public Timer timer;
     // Update is called once per frame
     void Update()
     {
@@ -18,8 +19,12 @@ public class HealthSystem : MonoBehaviour
         Invulnerable = true;
         Invoke(nameof(ResetInvulnerability), 2.0f);
         CurrentHealth -= damage;
-        if(CurrentHealth<=0)
+        if (CurrentHealth <= 0)
+        {
+            timer.Die();
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        }
+          
     }
     public void ResetInvulnerability()
     {

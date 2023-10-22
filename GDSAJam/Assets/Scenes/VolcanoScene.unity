@@ -387,6 +387,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1488846a6c15afb44961e4c91f5b720a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &463359681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 463359683}
+  - component: {fileID: 463359682}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &463359682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463359681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c5cffd1fb6ef14581edba10b004b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Time: 0
+--- !u!4 &463359683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463359681}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 125.711296, y: 136.48067, z: -1.9175239}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &481032023
 GameObject:
   m_ObjectHideFlags: 0
@@ -6056,6 +6101,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 1734992461}
   EndPoint: {fileID: 1145500652}
+--- !u!114 &1291901543 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6138164776482190790, guid: 4a0f0c99cef4b064bbb40567936b005d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1832690356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae1f812cc19b4046ba9b4f7aacaf43f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1408792496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13738,6 +13795,10 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: -0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 887418028, guid: 7663434db35e62444939afc514d3ad32, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1291901543}
     - target: {fileID: 6331902975566885143, guid: 7663434db35e62444939afc514d3ad32,
         type: 3}
       propertyPath: m_Name

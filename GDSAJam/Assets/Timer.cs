@@ -22,8 +22,12 @@ public class Timer : MonoBehaviour
 
         if (RunTime <= 0.0f)
         {
-            EndTImer.instance.Time = RunTime;
+           
             SceneManager.LoadScene("WinScreen", LoadSceneMode.Single);
         }
+    }
+    public void Die()
+    {
+        EndTImer.instance.Time = RunTime;
     }
 }

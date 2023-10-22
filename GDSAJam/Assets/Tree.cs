@@ -9,6 +9,8 @@ public class Tree : FallingItem
     public float FallTime = 3f, FallInterval = 0.01f;
     public int FallDir=0;
     public BoxCollider2D Box;
+    //Flash VFX
+    public Material FlashMat;
     // Start is called before the first frame update
     public override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -56,6 +58,10 @@ public class Tree : FallingItem
             Duration += SinkInterval;
             coll.size = new Vector2(0.11f*(1f - Duration / SinkTime), 1);
             coll.offset = new Vector2((0.11f*FallDir *(1f - coll.size.x) / 2f)-0.02f*FallDir, 0);
+            if (Duration >= (SinkTime - 1))
+            {
+                GetComponent<SpriteRenderer>().material = FlashMat;
+            }
         }
         ItemDeath();
     }

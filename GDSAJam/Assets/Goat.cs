@@ -21,6 +21,7 @@ public class Goat : FallingItem
     {
         var colls = Physics2D.OverlapCircleAll(GetComponent<Rigidbody2D>().position, GoatJumpRange, WhatIsJumpable);
         TargetPlatform = GetClosestEnemy(colls);
+       
     }
 
     public override void HitLava()
@@ -28,12 +29,26 @@ public class Goat : FallingItem
         base.HitLava();
         Invoke(nameof(BeginJump), 2.0f);
     }
+    public override IEnumerator SinkDeBoi()
+    {
+        Sinking = true;
+        float Duration = 0;
+        while (Duration < SinkTime)
+        {
+            yield return new WaitForSeconds(SinkInterval);
+            Duration += SinkInterval;
+            coll.size = new Vector2(1, 1f - Duration / SinkTime);
+            coll.offset = new Vector2(0,( 1f - coll.size.y) / 2f);
+        }
+        ItemDeath();
+    }
     public void BeginJump()
     {
         if(TargetPlatform)
         StartCoroutine(Jump(transform.position,TargetPlatform.position+Vector3.up));
         else StartCoroutine(Jump(transform.position, transform.position + Vector3.up));
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        transform.localScale = new Vector3(-(TargetPlatform.position.x - transform.position.x) / Mathf.Abs(TargetPlatform.position.x - transform.position.x), 1, 1);
     }
     private IEnumerator Jump(Vector3 P1, Vector3 P2)
     {

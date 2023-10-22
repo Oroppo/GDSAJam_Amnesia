@@ -43,11 +43,11 @@ public class CharacterController : MonoBehaviour
     {
         CanJump = isGrounded(GroundedDistance);
         if (UnityEngine.Input.GetButtonDown("Jump"))
-            Jump();
+            Jump(1f);
 
         transform.rotation = Quaternion.Euler(0f, 0f, 0f); 
     }
-    private void Jump()
+    private void Jump(float Modifyer)
     {
 
         isJumping = true;
@@ -57,7 +57,7 @@ public class CharacterController : MonoBehaviour
 
         if (!CanJump) return;
         CanJump = false;
-        RB.velocity = new Vector2(RB.velocity.x, JumpHeight);
+        RB.velocity = new Vector2(RB.velocity.x, JumpHeight*Modifyer);
     }
 
     public bool isGrounded(float x)
@@ -85,9 +85,18 @@ public class CharacterController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-            if(collider.tag == "Lava")
+            if(collider.gameObject.layer == LayerMask.NameToLayer("Lava"))
             {
-                
+            GetComponent<HealthSystem>().TakeDamage(1);
+            Jump(1.5f);
             }
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Lava"))
+        {
+            GetComponent<HealthSystem>().TakeDamage(1);
+            Jump(1.5f);
+        }
     }
 }

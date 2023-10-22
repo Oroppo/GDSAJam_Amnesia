@@ -33,8 +33,8 @@ public class Dwayne2 : FallingItem
         {
             yield return new WaitForSeconds(SinkInterval);
             Duration += SinkInterval;
-            coll.size = new Vector2(1.312824f, (1f - Duration / SinkTime)* 0.324f);
-            coll.offset = new Vector2(0, (1f - coll.size.y) / 2f-((1f - coll.size.y) * (1-0.324f) / 2f));
+            coll.size = new Vector2(1.312824f, (1f - Duration / SinkTime)* 0.47f);
+            coll.offset = new Vector2(0, 0.47f*(1f - coll.size.y)/ 2f -0.12f);
         }
         ItemDeath();
 

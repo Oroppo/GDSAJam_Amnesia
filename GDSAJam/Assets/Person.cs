@@ -25,4 +25,18 @@ public class Person : FallingItem
     {
         Destroy(gameObject);
     }
+    public override IEnumerator SinkDeBoi()
+    {
+        Sinking = true;
+        float Duration = 0;
+        while (Duration < SinkTime)
+        {
+            yield return new WaitForSeconds(SinkInterval);
+            Duration += SinkInterval;
+            coll.size = new Vector2(0.44f * (1f - Duration / SinkTime), 1);
+            coll.offset = new Vector2(0.44f * (1f - coll.size.x) / 2f-0.04f, 0);
+        }
+        ItemDeath();
+    }
 }
+

@@ -217,3 +217,4 @@ MonoBehaviour:
   FallInterval: 0.01
   FallDir: 0
   Box: {fileID: 262703360}
+  FlashMat: {fileID: 2100000, guid: 6c98fef576d41f34e907997394bcf179, type: 2}

@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
     List<SpawnerBehaviour> Spawners = new List<SpawnerBehaviour>();
-
+    public static SpawnManager singleton; 
 
     [SerializeField]
     float SpawnInterval = 2.5f;
@@ -15,12 +15,15 @@ public class SpawnManager : MonoBehaviour
     int spawnCount = 0;
 
     int lastSpawner;
+    public bool LogExists =false;
 
     [SerializeField]
     int spawnsUntilChallengeUp = 5;
 
-    private void Start()
+    private void Awake()
     {
+        if (singleton == null)
+            singleton = this;
         //should happen after cutscene
         StartCoroutine(SpawnCoroutine());
         Debug.Log("Spawn Coroutine Started");

@@ -150,3 +150,4 @@ MonoBehaviour:
   SinkTime: 5
   SinkInterval: 0.01
   Sinking: 0
+  FlashMat: {fileID: 2100000, guid: 6c98fef576d41f34e907997394bcf179, type: 2}

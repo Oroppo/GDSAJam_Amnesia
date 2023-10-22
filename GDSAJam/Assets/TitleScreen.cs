@@ -7,8 +7,8 @@ public class TitleScreen : MonoBehaviour
     public GameObject TitleScreenBackground;
     public GameObject TitleScreenForeground;
 
-    public GameObject OptionsScreenForeground;
-    public GameObject OptionsScreenBackground; 
+    public GameObject HTPScreenForeground;
+    public GameObject HTPScreenBackground; 
 
 
 
@@ -31,7 +31,12 @@ public class TitleScreen : MonoBehaviour
     {
         //disable title screen elements & enable option screen elements
         TitleScreenForeground.SetActive(false);
-        OptionsScreenForeground.SetActive(true);
+        HTPScreenForeground.SetActive(true);
+    }
+    public void ReturnToMenu()
+    {
+        HTPScreenForeground.SetActive(false);
+        TitleScreenForeground.SetActive(true);
     }
     public void Quit()
     {

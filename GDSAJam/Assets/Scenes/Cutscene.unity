@@ -2829,7 +2829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd8d0a14b4073a4e97c2d75f59b67c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CutsceneRuntimeTotal: 24.9333
+  CutsceneRuntimeTotal: 22.95
 --- !u!4 &1441430231
 Transform:
   m_ObjectHideFlags: 0

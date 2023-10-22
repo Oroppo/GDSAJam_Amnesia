@@ -11,6 +11,10 @@ public abstract class FallingItem : MonoBehaviour
     public BoxCollider2D coll;
     public float SinkTime = 3f, SinkInterval = 0.01f;
     [HideInInspector] public bool Sinking = false;
+
+    [SerializeField]
+    AudioSource Lavaaudio;
+
     public virtual void OnValidate()
     {
         if (!coll)
@@ -33,7 +37,11 @@ public abstract class FallingItem : MonoBehaviour
        
         //6 is the lava layer
         if (collision.gameObject.layer == LayerMask.NameToLayer("Lava"))
+        {
             HitLava();
+            Lavaaudio.Play();
+        }
+            
 
    
     }

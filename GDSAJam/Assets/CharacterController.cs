@@ -42,6 +42,9 @@ public class CharacterController : MonoBehaviour
 
     private Vector2 InputVec;
 
+    [SerializeField]
+    AudioSource audioData;
+
     [HideInInspector] 
     public bool CanJump = true;
     public bool AirCharged = false;
@@ -96,6 +99,8 @@ public class CharacterController : MonoBehaviour
         if (AirCharged == true) CanJump = true;
         if (Input.GetButtonDown("Jump"))
             Jump(1f);
+        
+        
 
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
@@ -111,6 +116,8 @@ public class CharacterController : MonoBehaviour
     private void Jump(float Modifyer)
     {
         if (!CanJump) return;
+        
+        audioData.PlayDelayed(0.3f);
         AirCharged = false;
         _jumpTriggered = true;
         CanJump = false;
@@ -150,9 +157,9 @@ public class CharacterController : MonoBehaviour
 
         if (collider.tag == "body")
         {
-            bodyAudio.Play();
+            bodyAudio.PlayDelayed(0.2f);
         }
-        if (collider.tag == "Wall" || collider.tag == "Ground")
+        if (collider.tag == "wall" || collider.tag == "Ground")
         {
             stoneAudio.Play();
         }

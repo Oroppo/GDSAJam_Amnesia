@@ -22,7 +22,7 @@ public class AngelTarget : MonoBehaviour
         RB.bodyType = RigidbodyType2D.Kinematic;
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         RB.velocity = new Vector2(SwaySpeed*SwayDir, 1.5f);
 

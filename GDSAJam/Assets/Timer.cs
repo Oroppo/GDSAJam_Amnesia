@@ -20,7 +20,10 @@ public class Timer : MonoBehaviour
         int mins = (int)RunTime / 60;
         text.text = mins + ":" + (RunTime % 60).ToString("00.0");
 
-        if(RunTime<=0.0f)
+        if (RunTime <= 0.0f)
+        {
+            EndTImer.instance.Time = RunTime;
             SceneManager.LoadScene("WinScreen", LoadSceneMode.Single);
+        }
     }
 }

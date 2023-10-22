@@ -39,7 +39,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8966585114588609921}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -151,3 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d8bb8ea8df90e4aba44ee3ed247207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SwayDistance: 1
+  SwaySpeed: 0.5
+  SwayDir: 1

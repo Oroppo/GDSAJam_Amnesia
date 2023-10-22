@@ -24,7 +24,8 @@ public class Tree : FallingItem
             StartCoroutine(FallDown());
         }
         else if (collision.gameObject.layer != LayerMask.NameToLayer("Player")) Destroy(collision.gameObject);
-        else if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) collision.gameObject.GetComponent<HealthSystem>().TakeDamage(1);
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Player")&&Falling) 
+            collision.gameObject.GetComponent<HealthSystem>().TakeDamage(1);
         //base.OnTriggerEnter2D(collision);
     }
     public IEnumerator FallDown()

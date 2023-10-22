@@ -48,7 +48,9 @@ public class Goat : FallingItem
         StartCoroutine(Jump(transform.position,TargetPlatform.position+Vector3.up));
         else StartCoroutine(Jump(transform.position, transform.position + Vector3.up));
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-        transform.localScale = new Vector3(-(TargetPlatform.position.x - transform.position.x) / Mathf.Abs(TargetPlatform.position.x - transform.position.x), 1, 1);
+
+        if (TargetPlatform)
+            transform.localScale = new Vector3(-(TargetPlatform.position.x - transform.position.x) / Mathf.Abs(TargetPlatform.position.x - transform.position.x), 1, 1);
     }
     private IEnumerator Jump(Vector3 P1, Vector3 P2)
     {

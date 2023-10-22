@@ -15,6 +15,21 @@ public class CharacterController : MonoBehaviour
 
     Animator animator;
 
+    [SerializeField]
+    AudioSource bodyAudio;
+
+    [SerializeField]
+    AudioSource goatAudio;
+
+    [SerializeField]
+    AudioSource lavaAudio;
+
+    [SerializeField]
+    AudioSource hurtAudio;
+
+    [SerializeField]
+    AudioSource stoneAudio;
+
     [HideInInspector]
     #region Cached Properties
         private int _currentState;
@@ -127,11 +142,28 @@ public class CharacterController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-            if(collider.gameObject.layer == LayerMask.NameToLayer("Lava"))
-            {
-            GetComponent<HealthSystem>().TakeDamage(1);
-            Jump(1.5f);
-            }
+        if(collider.gameObject.layer == LayerMask.NameToLayer("Lava"))
+        {
+        GetComponent<HealthSystem>().TakeDamage(1);
+        Jump(1.5f);
+        }
+
+        if (collider.tag == "body")
+        {
+            bodyAudio.Play();
+        }
+        if (collider.tag == "Wall" || collider.tag == "Ground")
+        {
+            stoneAudio.Play();
+        }
+        if (collider.tag == "goat")
+        {
+            goatAudio.Play();
+        }
+        if (collider.tag == "lava")
+        {
+            lavaAudio.Play();
+        }
     }
     private void OnTriggerStay2D(Collider2D other)
     {

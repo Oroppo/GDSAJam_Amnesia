@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class HealthSystem : MonoBehaviour
 {
     public int MaxHealth = 3, CurrentHealth = 3;
-
+    public bool Invulnerable = false;
     // Update is called once per frame
     void Update()
     {
@@ -13,9 +13,17 @@ public class HealthSystem : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        if (Invulnerable)
+            return;
+        Invulnerable = true;
+        Invoke(nameof(ResetInvulnerability), 2.0f);
         CurrentHealth -= damage;
         if(CurrentHealth<=0)
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+    }
+    public void ResetInvulnerability()
+    {
+        Invulnerable = false;
     }
     public void Heal(int amount)
     {

@@ -13,18 +13,18 @@ public class Tree : FallingItem
     public override void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (!Falling&& collision.gameObject.layer == LayerMask.NameToLayer("Lava"))
+        if (!Falling && collision.gameObject.layer == LayerMask.NameToLayer("Lava"))
         {
             FallDir = (CanFall(Vector3.right)) ? FallDir : 1;
             FallDir = (CanFall(Vector3.left)) ? FallDir : -1;
             while (FallDir == 0)
-              FallDir = UnityEngine.Random.Range(-1, 1);
-          
-            Box.offset *= new Vector2(-FallDir,1);
-            StartCoroutine(FallDown()); 
-        }
-        else Destroy(collision.gameObject);
+                FallDir = UnityEngine.Random.Range(-1, 1);
 
+            Box.offset *= new Vector2(-FallDir, 1);
+            StartCoroutine(FallDown());
+        }
+        else if (collision.gameObject.layer != LayerMask.NameToLayer("Player")) Destroy(collision.gameObject);
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) collision.gameObject.GetComponent<HealthSystem>().TakeDamage(1);
         //base.OnTriggerEnter2D(collision);
     }
     public IEnumerator FallDown()
@@ -41,6 +41,7 @@ public class Tree : FallingItem
         transform.rotation = Quaternion.Euler(0, 0, FallDir*90f);
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         Destroy(Box);
+        Falling = false;
         coll.isTrigger = false;
         //  ItemDeath();
     }
@@ -52,8 +53,8 @@ public class Tree : FallingItem
         {
             yield return new WaitForSeconds(SinkInterval);
             Duration += SinkInterval;
-            coll.size = new Vector2((1f - Duration / SinkTime), 1);
-            coll.offset = new Vector2(FallDir*(1f - coll.size.x) / 2f, 0);
+            coll.size = new Vector2(0.11f*(1f - Duration / SinkTime), 1);
+            coll.offset = new Vector2((0.11f*FallDir *(1f - coll.size.x) / 2f)-0.02f*FallDir, 0);
         }
         ItemDeath();
     }

@@ -7,6 +7,7 @@ public class HealthSystem : MonoBehaviour
     public int MaxHealth = 3, CurrentHealth = 3;
     public bool Invulnerable = false;
     public Timer timer;
+    public Transform Board;
     // Update is called once per frame
     void Update()
     {
@@ -17,8 +18,14 @@ public class HealthSystem : MonoBehaviour
         if (Invulnerable)
             return;
         Invulnerable = true;
-        Invoke(nameof(ResetInvulnerability), 2.0f);
+        Invoke(nameof(ResetInvulnerability), 1.0f);
         CurrentHealth -= damage;
+
+        for (int i = 0; i < 3; i++)
+            Board.GetChild(i).gameObject.SetActive(false);
+        for (int i = 0; i < CurrentHealth; i++)
+            Board.GetChild(i).gameObject.SetActive(true);
+
         if (CurrentHealth <= 0)
         {
             timer.Die();

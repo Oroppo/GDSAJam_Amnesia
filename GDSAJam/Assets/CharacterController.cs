@@ -15,6 +15,21 @@ public class CharacterController : MonoBehaviour
 
     Animator animator;
 
+    [SerializeField]
+    AudioSource bodyAudio;
+
+    [SerializeField]
+    AudioSource goatAudio;
+
+    [SerializeField]
+    AudioSource lavaAudio;
+
+    [SerializeField]
+    AudioSource hurtAudio;
+
+    [SerializeField]
+    AudioSource stoneAudio;
+
     [HideInInspector]
     #region Cached Properties
         private int _currentState;
@@ -29,6 +44,7 @@ public class CharacterController : MonoBehaviour
 
     [HideInInspector] 
     public bool CanJump = true;
+    public bool AirCharged = false;
     private bool _grounded;
     private bool _jumpTriggered;
     private float _lockedTill;
@@ -77,7 +93,7 @@ public class CharacterController : MonoBehaviour
     {
         CanJump = isGrounded(GroundedDistance);
         _grounded = isGrounded(GroundedDistance);
-
+        if (AirCharged == true) CanJump = true;
         if (Input.GetButtonDown("Jump"))
             Jump(1f);
 
@@ -95,6 +111,7 @@ public class CharacterController : MonoBehaviour
     private void Jump(float Modifyer)
     {
         if (!CanJump) return;
+        AirCharged = false;
         _jumpTriggered = true;
         CanJump = false;
         RB.velocity = new Vector2(RB.velocity.x, JumpHeight*Modifyer);
@@ -125,11 +142,28 @@ public class CharacterController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-            if(collider.gameObject.layer == LayerMask.NameToLayer("Lava"))
-            {
-            GetComponent<HealthSystem>().TakeDamage(1);
-            Jump(1.5f);
-            }
+        if(collider.gameObject.layer == LayerMask.NameToLayer("Lava"))
+        {
+        GetComponent<HealthSystem>().TakeDamage(1);
+        Jump(1.5f);
+        }
+
+        if (collider.tag == "body")
+        {
+            bodyAudio.Play();
+        }
+        if (collider.tag == "Wall" || collider.tag == "Ground")
+        {
+            stoneAudio.Play();
+        }
+        if (collider.tag == "goat")
+        {
+            goatAudio.Play();
+        }
+        if (collider.tag == "lava")
+        {
+            lavaAudio.Play();
+        }
     }
     private void OnTriggerStay2D(Collider2D other)
     {

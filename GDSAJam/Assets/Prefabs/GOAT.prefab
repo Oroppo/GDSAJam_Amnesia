@@ -221,6 +221,7 @@ MonoBehaviour:
   GoatJumpTime: 1
   TotalJumps: 3
   IHateTheGoat: {fileID: 381225419}
+  FlashMat: {fileID: 2100000, guid: 6c98fef576d41f34e907997394bcf179, type: 2}
 --- !u!95 &6143069351372459020
 Animator:
   serializedVersion: 4

@@ -155,6 +155,7 @@ MonoBehaviour:
     type: 3}
   AngelPrefab: {fileID: 557514892026292423, guid: f5cf027ed145efd4585f765c51f2cf4e,
     type: 3}
+  FlashMat: {fileID: 2100000, guid: 6c98fef576d41f34e907997394bcf179, type: 2}
 --- !u!82 &929160539012629449
 AudioSource:
   m_ObjectHideFlags: 0

@@ -10,6 +10,8 @@ public class Goat : FallingItem
     public float GoatJumpHeight, GoatJumpTime;
     public int TotalJumps = 3;
     public Transform IHateTheGoat;
+    //Flash VFX
+    public Material FlashMat;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,10 @@ public class Goat : FallingItem
             Duration += SinkInterval;
             coll.size = new Vector2(1, 1f - Duration / SinkTime);
             coll.offset = new Vector2(0,( 1f - coll.size.y) / 2f);
+            if (Duration >= (SinkTime - 1))
+            {
+                GetComponent<SpriteRenderer>().material = FlashMat;
+            }
         }
         ItemDeath();
     }

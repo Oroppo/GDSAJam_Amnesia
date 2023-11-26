@@ -27,6 +27,11 @@ public class TitleScreen : MonoBehaviour
     {
         SceneManager.LoadScene("Cutscene", LoadSceneMode.Single);
     }
+
+    public void SkipToGame()
+    {
+        SceneManager.LoadScene("VolcanoScene", LoadSceneMode.Single);
+    }
     public void LoadControls()
     {
         //disable title screen elements & enable option screen elements

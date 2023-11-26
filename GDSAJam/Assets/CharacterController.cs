@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -82,7 +83,7 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        InputVec = new Vector2(UnityEngine.Input.GetAxis("Horizontal"),0.0f);
+        
        if(!IsWalled()) RB.velocity = new Vector2(InputVec.x* LRSpeed, RB.velocity.y);
            else RB.velocity = new Vector2(0, RB.velocity.y);
 
@@ -92,6 +93,10 @@ public class CharacterController : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = true;
     }
 
+    InputAction OnMove()
+    {
+        InputVec = new Vector2(UnityEngine.Input.GetAxis("Horizontal"), 0.0f);
+    }
     private void Update()
     {
         CanJump = isGrounded(GroundedDistance);

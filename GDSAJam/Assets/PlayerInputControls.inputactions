@@ -1,0 +1,45 @@
+{
+    "name": "PlayerInputControls",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "a6273bbc-13f2-493a-993c-931bed93ef4f",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Value",
+                    "id": "3e7cfe55-82e2-40f7-b284-19bbbb9df3fd",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "957e6fa4-241b-44ad-bbcc-994e7baafc90",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5642a8b3-8268-4b60-96e8-0ef9832697f2",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
